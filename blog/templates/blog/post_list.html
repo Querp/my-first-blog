@@ -1,40 +1,13 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Django blog</title>
-    <style>
-      * {
-        color: inherit;
-      }
-      body {
-        font-family: sans-serif;
-        padding: 0;
-        background: #222;
-        color: #aaa;
-      }
-      h1 {
-        font-size: 5rem;
-      }
-      article {
-        background: #111;
-        padding: 0.5rem 1rem;
-        margin: 1rem 0;
-        time {
-          color: #777;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1><a href="/">Django Blog</a></h1>
-    </header>
+{% extends 'blog/base.html' %}
+
+{% block content %}
     {% for post in posts %}
-    <article>
-      <time>published: {{ post.published_date }}</time>
-      <h2><a href="">{{ post.title }}</a></h2>
-      <p>{{ post.text|linebreaksbr }}</p>
-    </article>
+        <article class="post">
+            <time class="date">
+                {{ post.published_date }}
+            </time>
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </article>
     {% endfor %}
-  </body>
-</html>
+{% endblock %}
