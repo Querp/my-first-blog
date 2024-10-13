@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+  
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,14 +11,21 @@
     <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}" />
   </head>
 
-  <header>
-    <a href="{% url 'post_new' %}" class="top-menu">
-      {% include './icons/file-earmark-plus.svg' %}
-    </a>
-    <h1><a href="/">Django Blog</a></h1>
-  </header>
+  <body>
 
-  {% block content %}
-  {% endblock %}
+    <header>
+      <h1><a href="/">Django Blog</a></h1>
+      <img src="{% static 'blog/img/cow.jpeg' %}" alt="">
+      <a href="{% url 'post_new' %}" class="top-menu">
+        {% include './icons/file-earmark-plus.svg' %}
+      </a>
+    </header>
+
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+
+  </body>
 
 </html>
