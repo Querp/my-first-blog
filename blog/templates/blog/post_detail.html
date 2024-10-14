@@ -1,6 +1,7 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+    {% comment %} <h1>POST DETAILS</h1> {% endcomment %}
     <article class="post">
         <aside class="actions">
             <a class="btn btn-secondary" href="{% url 'post_edit' pk=post.pk %}" title="Artikel Bewerken">
@@ -14,5 +15,9 @@
             </time>
         {% endif %}
         <p>{{ post.text|linebreaksbr }}</p>
+        <p>Smaak: {{ post.smaak }}/100</p>
+        <output>
+        <p>Malsheid: {{ post.malsheid }}/100</p>
+        <output>
     </article>
 {% endblock %}

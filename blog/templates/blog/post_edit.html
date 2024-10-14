@@ -1,11 +1,15 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    {% comment %} <h2>New post</h2> {% endcomment %}
+    {% comment %} <h1>POST EDIT</h1> {% endcomment %}
     <form method="POST" class="post-form">{% csrf_token %}
-        {% comment %} <p>{{ form.title.label_tag }} {{ form.title }}</p> {% endcomment %}
-        {% comment %} <p>{{ form.text.label_tag }} {{ form.text }}</p> {% endcomment %}
-        {{ form.as_p }}
+        <p>{{ form.author.label_tag}} {{ form.author }}</p>
+        <p>{{ form.title.label_tag}} {{ form.title }}</p>
+        <p>{{ form.text.label_tag}} {{ form.text }}</p>
+        <p>{{ form.created_date.label_tag}} {{ form.created_date }}</p>
+        <p>{{ form.published_date.label_tag}} {{ form.published_date }}</p>
+        <p>{{ form.smaak.label_tag}} {{ form.smaak }}<output>{{ post.smaak }}<output></p>
+        <p>{{ form.malsheid.label_tag}} {{ form.malsheid }}<output>{{ post.malsheid }}<output></p>
         <button type="submit" class="save btn btn-secondary">Opslaan</button>
     </form>
 {% endblock %}
