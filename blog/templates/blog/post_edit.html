@@ -1,9 +1,14 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <h2>New post</h2>
+    {% comment %} <h2>New post</h2> {% endcomment %}
     <form method="POST" class="post-form">{% csrf_token %}
+        {% comment %} <p>{{ form.title.label_tag }} {{ form.title }}</p> {% endcomment %}
+        {% comment %} <p>{{ form.text.label_tag }} {{ form.text }}</p> {% endcomment %}
         {{ form.as_p }}
-        <button type="submit" class="save btn btn-secondary">Save</button>
+        <button type="submit" class="save btn btn-secondary">Opslaan</button>
     </form>
 {% endblock %}
+
+
+

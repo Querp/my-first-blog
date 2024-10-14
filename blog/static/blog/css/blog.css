@@ -76,9 +76,10 @@ header {
   }
   a.top-menu {
     position: absolute;
-    inset: 0.6rem auto auto calc(50% + 0px + 35vw);
+    inset: 0.6rem auto auto calc(50% + 35vw);
     /* inset: 2rem auto auto calc(50% - 374px); */
-    transform: translate(0, 9rem);
+    transform: translate(0, 16rem);
+    
     svg {
       /* color: rgba(245, 245, 245, 0.75); */
       width: 3.5rem;
@@ -101,12 +102,10 @@ main {
 }
 
 article.post {
-  &:has(h2 a:hover){
+  &:has(h2 a:hover),
+  &:has(svg:hover){
     box-shadow: 0 0 0 3px var(--hover-clr);
   }
-  /* &:first-child.post{
-    background: #08090ac6;
-  } */
   position: relative;
   width: 100%;
   max-width: 600px;
@@ -160,9 +159,76 @@ article.post {
   }
 }
 
+
+
+form.post-form {
+  width: 100%;
+  max-width: 900px;
+  padding: 1.5rem 3rem 2.5rem 3rem;
+  margin: 1rem 0;
+  background: #08090a7c;
+  border: 2px solid hsla(188, 100%, 50%, 0.02);
+  border-radius: 5px;
+  >p{
+    display: grid;
+    grid-template-columns: 135px 1fr;
+    min-height: 2rem;
+    margin-bottom: 0.5rem;
+    label {
+      font-weight: 600;
+      padding: 0.5rem;
+    }
+    label + *{
+      background: none;
+      font-size: 1rem;
+      font-family: inherit;
+      border: none;
+      border: 2px rgba(218, 218, 218, 0.15) solid;
+      padding: 0.5rem;
+      /* border-radius: 0.5rem; */
+      resize: none;
+      /* &#id_author, */
+      &#id_created_date, 
+      &#id_published_date {
+        color: grey;
+        border: none;
+        pointer-events: none;
+      }
+    }
+  }
+  button[type='submit']{
+    padding: 0.7rem 1.8rem;
+    border: 3px rgb(178, 172, 162) solid;
+    border-radius: 0.5rem;
+    color: inherit;
+    color: rgb(178, 172, 162);
+    background: none;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 2.5rem auto 0 auto;
+    display: block;
+    &:hover {
+      color: var(--hover-clr);
+      border-color: var(--hover-clr);
+      cursor: pointer;
+    }
+
+  }
+  &:has(button[type='submit']:hover){
+    box-shadow: 0 0 0 3px var(--hover-clr);
+  }
+}
+
+
+body:has(form.post-form) header a.top-menu{
+  display: none;
+  left: calc(50% - 524px);
+}
+
 @media only screen and (min-width: 750px) {
   header a.top-menu {
     inset: 2rem auto auto calc(50% - 305px);
     left: calc(50% - 374px);
+    transform: translate(0, 9rem);
   }
 }
